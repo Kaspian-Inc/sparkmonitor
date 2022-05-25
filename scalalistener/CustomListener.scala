@@ -60,6 +60,7 @@ class JupyterSparkMonitorListener(conf: SparkConf) extends SparkListener {
   /** Start the socket connection to the kernel and start the send task. The kernel is the server already waiting for connections.*/
   def startConnection(): Unit = {
     try {
+      Thread.sleep(20000)
       socket = new Socket("localhost", port.toInt)
       out = new OutputStreamWriter(socket.getOutputStream())
 
